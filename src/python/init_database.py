@@ -13,31 +13,6 @@ def initialize_database():
     conn.execute("INSTALL spatial;")
     conn.execute("LOAD spatial;")
     
-    # Create example tables
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS climate_data (
-            id INTEGER,
-            date DATE,
-            location VARCHAR,
-            temperature FLOAT,
-            precipitation FLOAT,
-            geometry VARCHAR,  -- WKT format for spatial data
-            PRIMARY KEY (id)
-        )
-    """)
-    
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS biodiversity_data (
-            id INTEGER,
-            species VARCHAR,
-            observation_date DATE,
-            location VARCHAR,
-            count INTEGER,
-            geometry VARCHAR,  -- WKT format for spatial data
-            PRIMARY KEY (id)
-        )
-    """)
-    
     print("Database initialized successfully!")
     conn.close()
 
